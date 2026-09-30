@@ -1,0 +1,259 @@
+<?php
+$produk_list = [
+    [
+        "nama" => "Wireless Mouse Silent W-350",
+        "kategori" => "MOUSE WIRELESS",
+        "harga" => 150000,
+        "stok" => 12
+    ],
+    [
+        "nama" => "Mechanical Keyboard MK-88",
+        "kategori" => "KEYBOARD MECHANICAL",
+        "harga" => 480000,
+        "stok" => 5
+    ],
+    [
+        "nama" => "GAMING HEADSET RGB H-500",
+        "kategori" => "HEADSET GAMING",
+        "harga" => 350000,
+        "stok" => 0
+    ],
+    [
+        "nama" => "Digital Graphic Tablet T-10",
+        "kategori" => "DRAWING TABLET",
+        "harga" => 1500000,
+        "stok" => 4
+    ],
+    [
+        "nama" => "Curved Monitor 165Hz M-27",
+        "kategori" => "MONITOR GAMING",
+        "harga" => 2800000,
+        "stok" => 6
+    ],
+    [
+        "nama" => "Flashdrive High Speed U-64",
+        "kategori" => "USB  FLASHDRIVE",
+        "harga" => 90000,
+        "stok" => 0
+    ]
+];
+$total_produk = count($produk_list);
+?>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cia Store - Katalog Produk Aksesoris Komputer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body{
+            background-color: #fff5f7;
+            color: #4a3e3e;
+        }
+        .navbar{
+            background-color: #f8c8d8;
+            color: #5c3a42;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 2px 8px rgba(248, 200, 216, 0.4);
+        }
+        .navbar strong{
+            color: #8c4a5c;
+            font-size: 1.2rem;
+        }
+        .navbar a{
+            color: #6b434e;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .navbar a:hover{
+            color: #d87093;
+        }
+        .hero{
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+            color: #5c2c38;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .hero h1{
+            font-size: 2rem;
+            margin-bottom: 8px;
+            color: #723645;
+        }
+        .hero p{
+            color: #8a4b5c;
+        }
+        .container{
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .info-bar{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+        .katalog-title{
+            color: #723645;
+        }
+        .total-produk{
+            color: #8a4b5c;
+        }
+        .produk-grid{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        .card-produk{
+            background: #ffffff;
+            border: 1px solid #f2d6dc;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(230, 180, 195, 0.15);
+        }
+        .produk-nama{
+            font-size: 1.1rem;
+            color: #5c2c38;
+        }
+        .produk-kategori{
+            font-size: 0.85rem;
+            color: #9c6875;
+            margin-top: 4px;
+        }
+        .harga-normal del{
+            color: #e74c3c;
+        }
+        .persen-diskon{
+            color: #d32f2f;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .harga-diskon{
+            font-size: 1.05rem;
+            color: #723645;
+        }
+        .status-tersedia{
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .status-habis{
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .btn-beli{
+            background-color: #f06292;
+            color: white;
+            border: none;
+            padding: 9px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        .btn-beli:hover{
+            background-color: #ec407a;
+        }
+        .btn-disabled{
+            background-color: #e0b0bc;
+            color: #ffffff;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+
+    <nav class="navbar">
+        <strong>Cia Store</strong> 
+        <a href="#">Beranda</a>
+        <a href="#katalog">Katalog</a>
+        <a href="#">Tentang Kami</a>
+    </nav>
+
+    <section class="hero">
+        <h1>Selamat Datang di Cia Store</h1>
+        <p>Perangkat dan Aksesoris Komputer Terbaik</p>
+    </section>
+
+    <main class="container" id="katalog">
+        <div class="info-bar">
+            <h2 class="katalog-title">Katalog Produk</h2>
+            <div class="total-produk">Total Produk Tersedia: <strong><?= htmlspecialchars($total_produk); ?> Jenis</strong></div>
+        </div>
+
+        <div class="produk-grid">
+
+        <?php foreach ($produk_list as $produk) : ?>
+            <div class="card-produk">
+                <h3 class="produk-nama">
+                        <?= htmlspecialchars($produk['nama']); ?>
+                </h3>
+
+            <div class="produk-kategori">
+                <?= htmlspecialchars($produk['kategori']); ?>
+            </div>
+
+            <div class="produk-harga">
+                <?php if ($produk['harga'] >= 1000000) : ?>
+                   <?php
+                    $persen_diskon = 10;
+                    $jumlah_diskon = $produk['harga'] * ($persen_diskon / 100);
+                    $harga_setelah_diskon = $produk['harga'] - $jumlah_diskon;
+                ?>
+
+                <div class="harga-normal">
+                    Harga Normal: <del><?= "Rp " . number_format($produk['harga'], 0, ',', '.'); ?></del>
+                </div>
+
+                <div class="persen-diskon">
+                    Diskon: <strong><?= $persen_diskon; ?>%</strong>
+                </div>
+
+                <div class="harga-diskon">
+                    Harga Setelah Diskon: <strong><?= "Rp " . number_format($harga_setelah_diskon, 0, ',', '.'); ?></strong>
+                </div>
+
+                <?php else : ?>
+                    Harga: <strong><?= "Rp " . number_format($produk['harga'], 0, ',', '.'); ?></strong>
+                <?php endif; ?>
+            </div>
+
+            <div class="produk-stok">
+                Stok: <strong><?= htmlspecialchars($produk['stok']); ?></strong>
+            </div>
+
+            <div class="produk-status">    
+                        <?php if ($produk['stok'] > 0) : ?>
+                            <span class="status-tersedia">Tersedia</span>
+                        <?php else : ?>
+                            <span class="status-habis">Stok Habis</span>
+                        <?php endif; ?>
+            </div>
+
+            <div class="produk-aksi">
+                        <?php if ($produk['stok'] > 0) : ?>
+                            <button class="btn-beli">Beli Sekarang</button>
+                        <?php else : ?>
+                            <button class="btn-beli btn-disabled" disabled>Stok Habis</button>
+                        <?php endif; ?>
+            </div>
+
+        </div>
+        <?php endforeach; ?>
+    </main>
+
+</body>
+</html>
