@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background-color: #fff5f7;
+    color: #4a3e3e;
+}
+.navbar {
+    background-color: #f8c8d8; 
+    color: #5c3a42;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 2px 8px rgba(248, 200, 216, 0.4);
+}
+.navbar strong {
+    color: #8c4a5c;
+    font-size: 1.2rem;
+}
+.navbar a {
+    color: #6b434e;
+    text-decoration: none;
+    font-weight: 600;
+}
+.navbar a:hover {
+    color: #d87093;
+}
+.hero {
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    color: #5c2c38;
+    padding: 40px 20px;
+    text-align: center;
+}
+.hero h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    color: #723645;
+}
+.hero p {
+    color: #8a4b5c;
+}
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+.info-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+.katalog-title {
+    color: #723645;
+}
+.total-produk {
+    color: #8a4b5c;
+}
+.produk-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+.card-produk {
+    background: #ffffff;
+    border: 1px solid #f2d6dc;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(230, 180, 195, 0.15);
+}
+.produk-nama {
+    font-size: 1.1rem;
+    color: #5c2c38;
+}
+.produk-kategori {
+    font-size: 0.85rem;
+    color: #9c6875;
+    margin-top: 4px;
+}
+.harga-normal del {
+    color: #e74c3c;
+}
+.persen-diskon {
+    color: #d32f2f;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+.harga-diskon {
+    font-size: 1.05rem;
+    color: #723645;
+}
+.status-tersedia {
+    color: #27ae60;
+    font-weight: bold;
+}
+.status-habis {
+    color: #e74c3c;
+    font-weight: bold;
+}
+.btn-beli {
+    background-color: #f06292;
+    color: white;
+    border: none;
+    padding: 9px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+.btn-beli:hover {
+    background-color: #ec407a;
+}
+.btn-disabled {
+    background-color: #e0b0bc;
+    color: #ffffff;
+    cursor: not-allowed;
+}
